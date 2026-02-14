@@ -1,0 +1,115 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  background: inherit;
+}
+
+/* LEFT SIDE */
+.home-left {
+  flex: 1;
+}
+
+.home-left h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.home-left span {
+  color: #6366f1;
+}
+
+.home-left h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #cbd5e1;
+}
+
+.home-left p {
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #94a3b8;
+}
+
+/* BUTTON */
+.home-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: #6366f1;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background: #4f46e5;
+}
+
+/* SOCIAL LINKS */
+.socials {
+  margin-top: 20px;
+}
+
+.socials a {
+  margin-right: 15px;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #6366f1;
+}
+
+/* RIGHT SIDE */
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.home-right img {
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .home-left {
+    order: 2;
+  }
+
+  .home-right {
+    order: 1;
+    margin-bottom: 30px;
+  }
+
+  .home-right img {
+    width: 220px;
+  }
+
+  .home-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-left h2 {
+    font-size: 1.4rem;
+  }
+
+  .home-left p {
+    margin: 0 auto 20px auto;
+  }
+}
