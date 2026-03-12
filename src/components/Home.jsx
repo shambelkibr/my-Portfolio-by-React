@@ -7,7 +7,7 @@ import profile from "../assets/sham.jpg";
 
 function Home() {
   return (
-    <section className="home">
+    <section className="home" id="home">
       <motion.div
         className="home-left"
         initial={{ opacity: 0, x: -80 }}
@@ -29,22 +29,22 @@ function Home() {
           speed={50}
           repeat={Infinity}
         />
-
         <p>
-          Welcome! Make yourself at home as you explore. I'm a highly skilled
-          Full Stack and Mobile App developer with a proven track record of
-          tackling diverse and challenging projects. I excel in delivering
-          seamless solutions tailored to your needs. From sleek mobile apps to
-          robust web solutions, count on me as your trusted partner for Web and
-          App Development. I build modern, responsive web applications using
-          React, JavaScript, and clean UI design.
+          Welcome, and make yourself at home as you explore my work. I am a
+          full-stack developer with a strong track record of
+          building solutions for diverse and challenging projects. I focus on
+          creating seamless, user-centered experiences tailored to your goals.
+           robust web platforms, you can count on me as
+          a trusted partner for web and app development. I build modern,
+          responsive applications using React, JavaScript, and clean UI design.
         </p>
+
         <div className="socials">
-         
           <a
             className="home-btn"
             href="https://github.com/shambelkibr"
             target="_blank"
+            rel="noreferrer"
           >
             <FontAwesomeIcon icon={faGithub} />
             GitHub
@@ -54,6 +54,7 @@ function Home() {
             className="home-btn"
             href="https://linkedin.com/in/shanbel-kibre-b5ab38369"
             target="_blank"
+            rel="noreferrer"
           >
             {" "}
             <FontAwesomeIcon icon={faLinkedin} />
@@ -64,7 +65,7 @@ function Home() {
 
       <div className="home-right">
         <motion.div
-          className="home-right"
+          className="profile-orb"
           initial={{ opacity: 0, x: 80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
