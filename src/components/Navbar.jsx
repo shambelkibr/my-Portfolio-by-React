@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
-
-import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import "../styles/global.css";
-import Home from "./Home";
+import logoImage from "../assets/Logo.jpg";
+
+const navItems = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
 function Navbar() {
   const [dark, setDark] = useState(() => {
@@ -11,6 +16,7 @@ function Navbar() {
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     if (dark) {
@@ -24,31 +30,53 @@ function Navbar() {
     }
   }, [dark]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean);
+
+      const scrollPosition = window.scrollY + 140;
+
+      for (let index = sections.length - 1; index >= 0; index -= 1) {
+        const section = sections[index];
+        if (section.offsetTop <= scrollPosition) {
+          setActiveSection(section.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <nav className="navbar">
-      <h1 className="logo">Sham Dev</h1>
+      <div className="brand">
+        <img src={logoImage} alt="Shanbel Kibre logo" className="logo-image" />
+        <h1 className="logo">Sham Dev</h1>
+      </div>
 
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-        <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/projects" onClick={() => setMenuOpen(false)}>
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </Link>
-        </li>
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <a
+              href={`#${item.id}`}
+              className={activeSection === item.id ? "active-link" : ""}
+              onClick={() => {
+                setMenuOpen(false);
+                setActiveSection(item.id);
+              }}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
 
       {/* Hamburger */}

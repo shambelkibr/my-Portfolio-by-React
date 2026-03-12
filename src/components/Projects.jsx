@@ -1,51 +1,28 @@
-{
-  // import "../styles/projects.css";
-  // import { useState, useEffect } from "react";
-  // function Projects() {
-  //   const [repos, setRepos] = useState([]);
-  //   const [loading, setLoading] = useState(true);
-  //   useEffect(() => {
-  //     fetch("https://api.github.com/users/shambelkibr/repos")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setRepos(data);
-  //         setLoading(false);
-  //       });
-  //   }, []);
-  //   if (loading) return <h3>Loading projects...</h3>;
-  //   return (
-  //     <section>
-  //       <h2>My GitHub Projects</h2>
-  //       <div className="projects-grid">
-  //         {repos.map((repo) => (
-  //           <div className="project-card" key={repo.id}>
-  //             <h3>{repo.name}</h3>
-  //             <p>{repo.description}</p>
-  //             <a href={repo.html_url} target="_blank">
-  //               View Project
-  //             </a>
-  //           </div>
-  //         ))}
-  //       </div>
-  //     </section>
-  //   );
-  // }
-  // export default Projects;
-}
-
 import "../styles/projects.css";
 import projects from "../data/projects";
+import { motion } from "framer-motion";
 
 function Projects() {
   return (
-    <section className="projects">
-      <h2>Featured Projects</h2>
+    <motion.section
+      className="projects"
+      id="projects"
+      initial={{ opacity: 0, y: 34 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.65 }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <h2 className="section-reveal">Featured Projects</h2>
 
       <div className="projects-grid">
-        {projects.map((project) => (
-          <div
+        {projects.map((project, index) => (
+          <motion.article
             className={`project-card ${project.featured ? "featured" : ""}`}
             key={project.id}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            viewport={{ once: true, amount: 0.15 }}
           >
             {project.featured && (
               <span className="featured-badge">Featured</span>
@@ -78,10 +55,10 @@ function Projects() {
                 </a>
               )}
             </div>
-          </div>
+          </motion.article>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 

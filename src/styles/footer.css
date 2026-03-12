@@ -1,0 +1,12 @@
+.footer {
+  padding: 18px clamp(18px, 7vw, 88px) 26px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--card-border);
+  background: var(--surface);
+}
+
+.footer p {
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}

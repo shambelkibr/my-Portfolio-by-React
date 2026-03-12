@@ -2,127 +2,181 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 16px clamp(18px, 6vw, 72px);
   position: sticky;
   top: 0;
-  backdrop-filter: blur(10px);
-  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  background: var(--surface);
+  border-bottom: 1px solid var(--card-border);
   transition: 0.3s ease;
   z-index: 1000;
 }
 
 .navbar h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--nav-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
 }
 
-.navbar a {
+.brand {
   display: flex;
-  gap: 80px;
-  list-style: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
 }
 
 .navbar a {
   text-decoration: none;
-  color: var(--muted);
+  color: var(--text-color);
   font-weight: 500;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
 }
 
 .navbar a:hover {
-  color: #6366f1;
+  color: var(--accent);
 }
 
-/* Theme Toggle Button */
 .theme-btn {
-  border: none;
-  background: #6366f1;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 50px;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: #f8fffe;
+  border-radius: 999px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
   width: 40px;
-  height: 30px;
+  height: 40px;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
 }
 
 .theme-btn:hover {
-  opacity: 0.5;
+  transform: translateY(-1px);
+  background: var(--accent-strong);
 }
 
 .nav-links {
   display: flex;
-  gap: 80px;
+  gap: clamp(16px, 4vw, 42px);
   list-style: none;
 }
 
-/* HAMBURGER */
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active-link {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.nav-links a.active-link::after {
+  transform: scaleX(1);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-right: 15px;
+  gap: 4px;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: var(--nav-text);
-  margin: 4px 0;
+  background: var(--headline);
   transition: 0.3s;
+  border-radius: 12px;
 }
-/* MOBILE */
+
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 74px;
     left: 0;
     width: 100%;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
+    background: var(--surface-strong);
+    border-bottom: 1px solid var(--card-border);
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    padding: 25px 0;
+    gap: 18px;
+    padding: 0;
 
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+    box-shadow: 0 16px 26px rgba(15, 23, 42, 0.18);
   }
 
   .nav-links.active {
-    max-height: 300px;
+    max-height: 280px;
+    padding: 20px 0 24px;
   }
 
   .hamburger {
     display: flex;
   }
-
-  .navbar ul {
-    gap: 20px;
-  }
 }
 
-/* MOBILE NAVBAR LAYOUT FIX */
 @media (max-width: 768px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 14px 16px;
   }
 
   .logo {
     order: 1;
+    font-size: 1.1rem;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .logo-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
   }
 
   .theme-btn {
     order: 2;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: 14px;
+    width: 36px;
+    height: 36px;
   }
 
   .hamburger {
     order: 3;
     display: flex;
-    justify-content: space-between;
   }
 
   .nav-links {

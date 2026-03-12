@@ -1,24 +1,14 @@
-import wallpaper from "../assets/walleper1.jpg";
 import networking from "../assets/networking.jpg";
 import portifolio from "../assets/portifolio.png";
-
+import wallpaper from "../assets/walleper1.png";
 const projects = [
   {
-    id: 1,
-    title: "Portfolio Website",
-    description: "Personal portfolio built with vanila JS and CSS.",
-    github: "https://github.com/shambelkibr/portfolio",
-    demo: "",
-    tech: ["HTML", "CSS", "JS"],
-    image: wallpaper,
-    featured: true,
-  },
-  {
     id: 2,
-    title: "MERN E-Commerce",
-    description: "Full stack e-commerce application.",
-    github: "https://github.com/shambelkibr/mern-ecommerce",
-    demo: "",
+    title: "user Management System",
+    description:
+      "A full-stack user management platform with secure authentication, role-based access, and responsive UI workflows for administrators and end users.",
+    github: "https://github.com/shambelkibr/frontend_User_management",
+    demo: "https://frontend-nu-beige-66.vercel.app/",
     tech: ["React", "CSS", "Express JS", "mySQL"],
     image: wallpaper,
     featured: false,
@@ -26,7 +16,8 @@ const projects = [
   {
     id: 3,
     title: "DBU Haile Hotel Resturant Network Design Topology ",
-    description: "Cisco Packet Tracer VLAN & RIP",
+    description:
+      "A complete enterprise network topology designed in Cisco Packet Tracer, implementing VLAN segmentation and RIP routing for efficient and secure communication.",
     tech: ["Networking", "Cisco"],
     github: "https://github.com/shambelkibr/portfolio",
     demo: "",
@@ -36,7 +27,8 @@ const projects = [
   {
     id: 4,
     title: "React Portfolio",
-    description: "My personal portfolio website",
+    description:
+      "A modern personal portfolio built with React to showcase projects, technical skills, and contact channels with responsive design and smooth user experience.",
     tech: ["React", "CSS"],
     github: "https://github.com/shambelkibr/portfolio",
     demo: "https://github.com/shambelkibr/portfolio",
@@ -47,31 +39,33 @@ const projects = [
     id: 5,
     title: "MichotWork Job Portal",
     description:
-      "Java Servlet web application connecting job seekers and companies",
+      "A Java Servlet-based job portal that connects employers and job seekers through structured listings, profile management, and application tracking.",
     tech: ["Java", "Servlet", "Apache Tomcat", "MySQL"],
     github: "",
     demo: "https://github.com/shambelkibr/portfolio",
-    image: "./walleper1.jpg",
+    image: wallpaper,
     featured: false,
   },
   {
     id: 6,
     title: "DBU Clearance System",
-    description: "Online clearance reporting system using Python",
+    description:
+      "A Python-powered clearance management system that streamlines student clearance requests, status tracking, and departmental approval processes.",
     tech: ["Python GUI ", "MysQl DB"],
     github: "https://github.com/shambelkibr/portfolio",
     demo: "",
-    image: "./walleper1.jpg",
+    image: wallpaper,
     featured: false,
   },
   {
     id: 7,
     title: "Ethio Cart E-commerce",
-    description: "C++ data structure project with Qt database integration",
+    description:
+      "An e-commerce desktop application developed in C++ with Qt and database integration, focused on product management, cart workflows, and structured data handling.",
     tech: ["C++", "Qt", "Database"],
     github: "https://github.com/shambelkibr/portfolio",
     demo: "",
-    image: "./walleper1.jpg",
+    image: wallpaper,
     featured: false,
   },
 ];
