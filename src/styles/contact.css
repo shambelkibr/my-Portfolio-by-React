@@ -167,16 +167,22 @@
   background: var(--accent-strong);
 }
 
+.form-feedback {
+  min-height: 22px;
+}
+
 .error {
   color: var(--error);
   font-size: 14px;
   text-align: center;
+  margin: 0;
 }
 
 .success {
   color: var(--success);
   font-size: 14px;
   text-align: center;
+  margin: 0;
 }
 
 button:disabled {

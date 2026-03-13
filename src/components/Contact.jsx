@@ -42,6 +42,10 @@ const MotionSection = motion.section;
 const MotionAside = motion.aside;
 const MotionDiv = motion.div;
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 function Contact() {
   const [form, setForm] = useState({
     firstName: "",
@@ -96,10 +100,18 @@ function Contact() {
     setError("");
     setLoading(true);
 
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setLoading(false);
+      setError(
+        "Email service is not configured. Add your EmailJS keys in a .env file.",
+      );
+      return;
+    }
+
     emailjs
       .send(
-        "service_tcd0ork",
-        "template_b1y0637",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           first_name: form.firstName,
           last_name: form.lastName,
@@ -108,7 +120,7 @@ function Contact() {
           email: form.email,
           message: form.message,
         },
-        "_CI5uADgo7iCSq5Iu",
+        EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setLoading(false);
@@ -122,9 +134,11 @@ function Contact() {
           message: "",
         });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("EmailJS send failed:", err);
         setLoading(false);
-        setError("Failed to send message");
+        const providerMessage = err?.text || err?.message;
+        setError(providerMessage || "Failed to send message");
       });
   };
 
@@ -190,8 +204,6 @@ function Contact() {
           transition={{ duration: 0.55 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          {error && <p className="error">{error}</p>}
-          {success && <p className="success">Message sent successfully!</p>}
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <input
@@ -238,6 +250,11 @@ function Contact() {
             <button type="submit" disabled={loading}>
               {loading ? "Sending..." : "Send"}
             </button>
+
+            <div className="form-feedback" aria-live="polite">
+              {error && <p className="error">{error}</p>}
+              {success && <p className="success">Message sent successfully!</p>}
+            </div>
           </form>
         </MotionDiv>
       </div>
