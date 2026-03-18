@@ -50,12 +50,12 @@ const projects = [
     id: 6,
     title: "DBU Clearance System",
     description:
-      "A Python-powered clearance management system that streamlines student clearance requests, status tracking, and departmental approval processes.",
-    tech: ["Python GUI ", "MysQl DB"],
-    github: "https://github.com/shambelkibr/portfolio",
-    demo: "",
+      " This project is a distributed GUI system where a React frontend communicates with a Java Socket server via a Node.js (Express) backend.It allows sending messages to the server and managing student data stored in a MySQL database.Users can add students and filter them by age, sex, or grade through the frontend interface.",
+    tech: ["java socket ", " DB"],
+    github: "https://github.com/shambelkibr/Student-_managment_java_Socket/tree/main",
+    demo: "https://student-managment-java-socket.vercel.app/",
     image: wallpaper,
-    featured: false,
+    featured: false,MysQl
   },
   {
     id: 7,
