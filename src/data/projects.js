@@ -24,17 +24,7 @@ const projects = [
     image: networking,
     featured: false,
   },
-  {
-    id: 4,
-    title: "React Portfolio",
-    description:
-      "A modern personal portfolio built with React to showcase projects, technical skills, and contact channels with responsive design and smooth user experience.",
-    tech: ["React", "CSS"],
-    github: "https://github.com/shambelkibr/portfolio",
-    demo: "https://github.com/shambelkibr/portfolio",
-    image: portifolio,
-    featured: false,
-  },
+ 
   {
     id: 5,
     title: "MichotWork Job Portal",
