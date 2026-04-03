@@ -52,10 +52,11 @@ const projects = [
     description:
       " This project is a distributed GUI system where a React frontend communicates with a Java Socket server via a Node.js (Express) backend.It allows sending messages to the server and managing student data stored in a MySQL database.Users can add students and filter them by age, sex, or grade through the frontend interface.",
     tech: ["java socket ", " DB"],
-    github: "https://github.com/shambelkibr/Student-_managment_java_Socket/tree/main",
+    github:
+      "https://github.com/shambelkibr/Student-_managment_java_Socket/tree/main",
     demo: "https://student-managment-java-socket.vercel.app/",
     image: wallpaper,
-    featured: false,MysQl
+    featured: false,
   },
   {
     id: 7,
