@@ -18,6 +18,7 @@ import {
   faServer,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 const MotionSection = motion.section;
 const MotionCard = motion.div;
 const MotionBar = motion.span;
@@ -26,10 +27,10 @@ const skillGroups = [
   {
     title: "Frontend",
     skills: [
-      { name: "HTML", icon: faHtml5, className: "skill-html", level: 95 },
-      { name: "CSS", icon: faCss3Alt, className: "skill-css", level: 92 },
-      { name: "JavaScript", icon: faJs, className: "skill-js", level: 90 },
-      { name: "React", icon: faReact, className: "skill-react", level: 88 },
+      { name: "HTML", icon: faHtml5, className: "skill-html" },
+      { name: "CSS", icon: faCss3Alt, className: "skill-css",  },
+      { name: "JavaScript", icon: faJs, className: "skill-js"  },
+      { name: "React", icon: faReact, className: "skill-react"},
     ],
   },
   {
@@ -145,7 +146,7 @@ function About() {
                         <FontAwesomeIcon icon={skill.icon} />
                         {skill.name}
                       </span>
-                      <strong>{skill.level}%</strong>
+                   
                     </div>
                     <div className="skill-progress-track">
                       <MotionBar

@@ -58,8 +58,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="brand">
-        <img src={logoImage} alt="Shanbel Kibre logo" className="logo-image" />
-        <h1 className="logo">Sham Dev</h1>
+        <a href="#home"className="Logo1">
+        <img  src={logoImage} alt="Shanbel Kibre logo" className="logo-image" />
+          <h1 className="logo">Sham Dev</h1>
+        </a>
       </div>
 
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
