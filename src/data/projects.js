@@ -24,7 +24,7 @@ const projects = [
     image: networking,
     featured: false,
   },
- 
+
   {
     id: 5,
     title: "MichotWork Job Portal",

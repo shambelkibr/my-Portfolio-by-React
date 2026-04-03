@@ -33,7 +33,7 @@ const contactChannels = [
   {
     label: "YouTube",
     value: "Shanbel Kibre",
-    href: "https://www.youtube.com/",
+    href: "https://www.youtube.com/@ShanbekKibre",
     icon: faYoutube,
   },
 ];
